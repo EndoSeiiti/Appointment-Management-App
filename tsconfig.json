@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    /* Diretórios */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* Ambiente */
+    "module": "commonjs",             // Node moderno (ESM)
+    "target": "ES2021",               // Código moderno e compatível
+     // Usa resolução ESM do Node
+    "lib": ["esnext"],
+    "types": ["node"],
+
+    /* Saída */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* Regras de tipo */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true,
+
+    /* Estilo e módulos */
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": false,    // ✅ Corrige o erro dos imports
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force"
+  },
+  "include": ["src"]
+}
