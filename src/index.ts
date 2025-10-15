@@ -1,4 +1,4 @@
-import * as express from "express";
+import express from "express";
 import type { Request, Response } from "express";
 import reservationsRouter from "./routes/reservations";
 import usersRouter from "./routes/users";

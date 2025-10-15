@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { Reservation } from '../models/Reservation';
 import { request } from 'http';
+import authMid from '../auth';
 
 const reservationsRouter = Router();
 
@@ -15,7 +16,7 @@ let reservations: Reservation[] = [
     }
 ];
 
-reservationsRouter.post('/',(req: Request, res: Response) =>{
+reservationsRouter.post('/',authMid,(req: Request, res: Response) =>{
     const newReservationData: Reservation = req.body;
     console.log(newReservationData)
     if (!newReservationData?.place||!newReservationData?.date||!newReservationData?.startTime){
@@ -31,13 +32,18 @@ reservationsRouter.post('/',(req: Request, res: Response) =>{
     return res.status(201).json(reservation);
 
 });
-reservationsRouter.get('/',(req:Request, res:Response)=>{
+
+reservationsRouter.get('/',authMid,(req:Request, res:Response)=>{
     return res.status(200).json(reservations);
+
 });
-reservationsRouter.delete('/:id',(req:Request,res:Response)=>{
+reservationsRouter.delete('/:id',authMid,(req:Request,res:Response)=>{
     const{id} = req.params;
     const initialLength = reservations.length;
+
     reservations = reservations.filter(r=>r.id!==id);
+
+
     if (reservations.length===initialLength){
         return res.status(404).json({message:"Reservation not found"});
     }
