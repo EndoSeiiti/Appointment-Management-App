@@ -16,7 +16,7 @@ const RegisterPage: React.FC = () => {
         try {
             const response = await axios.post(API_URL,{username, password, email});
             setMessage({text:'Success, redirecting...', isError: false});
-            setTimeout(()=>{window.location.href = '/login';},2000);
+            setTimeout(()=>{window.location.href = '/';},2000);
         }
         catch (error: any){
             setMessage({text:'Error registering user', isError: false});

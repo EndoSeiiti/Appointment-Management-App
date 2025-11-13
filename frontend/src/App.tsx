@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import LoginPage from './views/login'; 
 import RegisterPage from './views/register';
+import ReservationsPage from './views/applications';
 
 
 const App: React.FC = () => {
@@ -11,8 +12,8 @@ const App: React.FC = () => {
             <Routes>
                 
                 <Route path="/" element={<LoginPage />} />
-
                 <Route path="/register" element={<RegisterPage />} />
+                <Route path="/reservations" element={<ReservationsPage />} />
 
             </Routes>
         </BrowserRouter>

@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// 1. Tipagem Forte do JWT_PASS para o compilador
 const JWT_PASS = process.env.JWT_SECRET as string; 
 
 if (!JWT_PASS) {

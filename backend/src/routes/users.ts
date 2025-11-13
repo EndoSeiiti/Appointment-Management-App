@@ -46,7 +46,7 @@ usersRouter.post('/register',async(req:Request,res:Response) =>{
 
 
 usersRouter.post('/login',async(req:Request, res:Response)=>{
-    const {email,password,user} = req.body;
+    const {email,password} = req.body;
 
     if (!email||!password){
     return res.status(400).json({message:'Email or password missing'});
@@ -63,7 +63,7 @@ usersRouter.post('/login',async(req:Request, res:Response)=>{
         return res.status(401).json({message:'Invalid Credentials'});
     }
     const token = jwt.sign(
-        {userId: user?.id, userEmail:user.email},
+        {userId: user.id, userEmail:user.email},
         JWT_PASS,
         {expiresIn:'1h'}
     );
